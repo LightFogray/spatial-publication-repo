@@ -15,7 +15,9 @@ the script named in the last column.
 ## The two files that cannot be regenerated exactly
 
 `chicago_roads.geojson` (44.7 MB) and `london_roads.geojson` (141.8 MB) were converted from the
-BBBike `.osm.pbf` extracts that were current when the analysis was run. Because OpenStreetMap is
+BBBike `.osm.pbf` extracts obtained in March 2026 and September 2026 respectively. Both post-date
+the 2024 incidents by one to two years, which the manuscript reports in Section 3.1 and lists as a
+limitation. Because OpenStreetMap is
 edited continuously, re-downloading today gives a similar network with different geometry
 details, and the audit counts in Table 1 would move by a few records.
 

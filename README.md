@@ -54,7 +54,9 @@ source, its licence, and the script that fetches it.
 The two converted road files are the one input that cannot be regenerated identically, because
 OpenStreetMap is edited continuously. They are archived with a DOI (see `data/README.md`) and
 `data/download_roads.py` fetches and converts the current extract, which yields an equivalent
-network rather than a bit-identical one.
+network rather than a bit-identical one. The archived copies were obtained in March 2026 (Chicago) and September 2026 (London) and
+therefore post-date the 2024 incidents, a mismatch the manuscript reports rather than
+corrects.
 
 Point the analysis at your data directory with an environment variable:
 
