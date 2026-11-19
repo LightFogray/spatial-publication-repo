@@ -25,9 +25,9 @@ Both converted files are archived together with the exact London and Chicago inc
 
 > **[Zenodo DOI to be inserted on acceptance]**
 
-The Zenodo deposit holds gzipped copies with the tag-stripped properties, which gunzip to
-the names the scripts expect. Stripping changes no audit input; the check is recorded in
-`docs/reproduction.md`.
+The Zenodo deposit holds gzipped copies of the same two files, 29 MB in total instead of
+178 MB. Decompression returns the originals byte for byte, so the MD5s in the table below
+still apply.
 
 Exact files to archive, with the checksums that identify them:
 
