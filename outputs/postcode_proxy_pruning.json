@@ -1,0 +1,32 @@
+{
+  "road_records": 56162,
+  "postcode_records": 180410,
+  "rows": [
+    {
+      "radius_m": 100,
+      "no_postcode": 1003,
+      "prune_pct": 1.79,
+      "median": 5
+    },
+    {
+      "radius_m": 200,
+      "no_postcode": 281,
+      "prune_pct": 0.5,
+      "median": 20
+    },
+    {
+      "radius_m": 300,
+      "no_postcode": 125,
+      "prune_pct": 0.22,
+      "median": 42
+    },
+    {
+      "radius_m": 500,
+      "no_postcode": 21,
+      "prune_pct": 0.04,
+      "median": 109
+    }
+  ],
+  "survivors_r200": 55881,
+  "turnover": 52533
+}

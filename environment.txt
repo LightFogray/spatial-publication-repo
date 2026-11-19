@@ -1,0 +1,10 @@
+Recorded on the machine used for the paper.
+
+python   3.14.0
+numpy    2.4.4
+pandas   3.0.6
+scipy    1.17.1
+matplotlib  (whatever ships with the above)
+
+The scripts avoid any dependency beyond these four, and avoid GIS libraries entirely:
+point-to-polyline matching is implemented in code/ rather than delegated to shapely or osgeo.

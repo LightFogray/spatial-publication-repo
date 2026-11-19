@@ -1,0 +1,12 @@
+{
+  "raw_records": 77357,
+  "excluded_road_class": 1702,
+  "canonical_roads": 47820,
+  "quadrature_points": 364857,
+  "road_km": 6393.522908323945,
+  "matching_identity_disagreement": 0.0,
+  "seed": 20261118,
+  "R": 500,
+  "B": 999,
+  "support": "25m-or-shorter straight-piece midpoints weighted by piece length; not continuous point simulation"
+}

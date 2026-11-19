@@ -1,0 +1,9 @@
+{
+  "network": "London",
+  "events": 254109,
+  "units": 182200,
+  "gini": 0.8936289454106401,
+  "snap_points_in_use": 47533,
+  "pieces": 1446230,
+  "seed": 20261122
+}

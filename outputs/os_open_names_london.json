@@ -1,0 +1,39 @@
+{
+  "gb_road_rows": 889277,
+  "london_road_rows": 56162,
+  "london_distinct_names": 41159,
+  "top_regions": [
+    [
+      "South East",
+      124792
+    ],
+    [
+      "North West",
+      117453
+    ],
+    [
+      "Yorkshire and the Humber",
+      93037
+    ],
+    [
+      "Eastern",
+      91278
+    ],
+    [
+      "South West",
+      89382
+    ],
+    [
+      "Scotland",
+      80142
+    ],
+    [
+      "East Midlands",
+      78140
+    ],
+    [
+      "West Midlands",
+      74953
+    ]
+  ]
+}

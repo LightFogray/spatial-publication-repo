@@ -1,0 +1,10 @@
+{
+  "network": "London",
+  "raw_records": 369272,
+  "excluded": 186001,
+  "units": 182200,
+  "pieces": 1446283,
+  "km": 21011.040917230373,
+  "identity_disagreement": 0.0,
+  "seed": 20261119
+}
