@@ -23,6 +23,13 @@ Both converted files are archived together with the exact London and Chicago inc
 
 > **[Zenodo DOI to be inserted on acceptance]**
 
+Exact files to archive, with the checksums that identify them:
+
+| File | Features | Bytes | MD5 |
+| --- | --- | --- | --- |
+| `chicago_roads.geojson` | 77,357 | 44,695,487 | `9705cdb96656afb41534b5570e573971` |
+| `london_roads.geojson` | 369,272 | 141,782,582 | `97d35133e4dbf06345c999c373ffe191` |
+
 `download_roads.py` fetches the current PBF and can convert it with `osmium export`, which is
 enough to run the pipeline end to end. Use the archived files to reproduce the published
 numbers.
