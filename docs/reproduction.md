@@ -14,7 +14,7 @@ Run from the repository root. Each script writes into `outputs/` (override with
 | `07_london_application.py` | Table 9 | `london_empirical.csv`, `london_empirical_support.json` |
 | `08_os_road_base.py` | Table 10, road counts | `os_open_names_london.json` |
 | `09_address_filter_proxy.py` | Table 10, pruning shares | `postcode_proxy_pruning.json` |
-| `10_reference_set_sweep.py` | Table 11 | `reference_set_sweep.csv` |
+| `10_reference_set_sweep.py` | Figure 4 | `reference_set_sweep.csv` |
 
 ## Ordering
 
@@ -24,9 +24,15 @@ archive. Scripts 04 to 06 need both road files.
 Nothing depends on a previous script's output, so they can be run in any order once the data are
 in place.
 
-## What is not reproduced
+## Figures
 
-The figure (`figures/calibration.png`) is drawn by a build script that also assembles the
-manuscript tables from the outputs; it is not included here because it also embeds manuscript
-text. The plotting code is short and can be rebuilt from `calibration_summary.csv` and
-`extensions_power_origin.csv` in a few lines of matplotlib.
+`11_make_figures.py` draws all four figures from the derived tables, so no figure is hand-edited:
+
+| Figure | File | Read from |
+| --- | --- | --- |
+| 1 | `fig1_mechanism.png` | `calibration_summary.csv` |
+| 2 | `fig2_calibration.png` | `calibration_summary.csv`, `extensions_power_origin.csv` |
+| 3 | `fig3_fifty_x.png` | `fifty_x_calibration.csv` |
+| 4 | `fig4_reference_set.png` | `reference_set_sweep.csv` |
+
+Figure 2 was produced by script 02 during the original analysis and is included as drawn.

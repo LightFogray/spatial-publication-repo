@@ -17,7 +17,7 @@ data.
 code/      ten analysis scripts, one per block of results
 data/      download scripts and the data manifest
 outputs/   derived tables and diagnostics (the values printed in the paper)
-figures/   the figure used in the manuscript
+figures/   the four figures, redrawn by code/11_make_figures.py
 docs/      which script produces which table
 ```
 
@@ -84,6 +84,7 @@ python code/07_london_application.py
 python code/08_os_road_base.py
 python code/09_address_filter_proxy.py
 python code/10_reference_set_sweep.py
+python code/11_make_figures.py
 ```
 
 Each script prints its headline numbers as it runs. `docs/reproduction.md` maps every table in
