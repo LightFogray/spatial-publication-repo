@@ -52,7 +52,7 @@ London archives total about 20 GB, and OS Open Names is 100 MB. `data/README.md`
 source, its licence, and the script that fetches it.
 
 The two converted road files are the one input that cannot be regenerated identically, because
-OpenStreetMap is edited continuously. They are archived with a DOI (see `data/README.md`) and
+OpenStreetMap is edited continuously. They are archived at https://doi.org/10.5281/zenodo.24370009 and
 `data/download_roads.py` fetches and converts the current extract, which yields an equivalent
 network rather than a bit-identical one. The archived copies were obtained in March 2026 (Chicago) and September 2026 (London) and
 therefore post-date the 2024 incidents, a mismatch the manuscript reports rather than

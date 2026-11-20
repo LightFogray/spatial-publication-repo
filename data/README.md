@@ -23,7 +23,7 @@ details, and the audit counts in Table 1 would move by a few records.
 
 Both converted files are archived together with the exact London and Chicago incident extracts:
 
-> **[Zenodo DOI to be inserted on acceptance]**
+> **https://doi.org/10.5281/zenodo.24370009**
 
 The Zenodo deposit holds gzipped copies of the same two files, 29 MB in total instead of
 178 MB. Decompression returns the originals byte for byte, so the MD5s in the table below
