@@ -35,4 +35,4 @@ in place.
 | 3 | `fig3_fifty_x.png` | `fifty_x_calibration.csv` |
 | 4 | `fig4_reference_set.png` | `reference_set_sweep.csv` |
 
-Figure 2 was produced by script 02 during the original analysis and is included as drawn.
+Figure 2 draws the size of the test in panel (a) and the power scan in panel (b), both from the files above; colour carries the series, and line style and marker repeat it so the figures survive greyscale reproduction.

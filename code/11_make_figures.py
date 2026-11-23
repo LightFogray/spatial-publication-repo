@@ -1,14 +1,14 @@
 """Draw the four figures in the manuscript.
 
 Figure 1  fig1_mechanism.png        what coarsening does to the number when risk is constant
-Figure 2  fig2_calibration.png      rejection rates at equal risk, and power
+Figure 2  fig2_calibration.png      size of the test, and where detection begins
 Figure 3  fig3_fifty_x.png          the same failure in the policy statistic
 Figure 4  fig4_reference_set.png    where the London answer turns over
 
 Part of the reproducibility package for "Crime concentration after spatial publication:
 aligning random baselines with observation processes". Reads outputs/ and writes figures/.
-Style choices are for print: line style and marker carry series identity, so the figures survive
-greyscale reproduction, and the type is sized for the journal's text width.
+Colour carries the series and so do line style and marker, so the figures remain readable in
+greyscale reproduction.
 
 """
 from pathlib import Path
@@ -31,6 +31,11 @@ plt.rcParams.update({
     "axes.spines.top": False, "axes.spines.right": False,
     "figure.dpi": 300, "savefig.dpi": 300, "savefig.bbox": "tight",
 })
+
+
+# colour plus shape: every series is identifiable in greyscale print as well as on screen
+COL = {"direct": "#1f4e79", "matched": "#c55a11", "chi": "#1f4e79", "lon": "#c55a11",
+       "ref": "#7f7f7f", "alt": "#2e7d32"}
 
 OP5 = [("identity", "Identity"), ("match", "Matching"), ("60", "60 m"),
        ("160", "160 m"), ("250", "250 m")]
@@ -60,10 +65,10 @@ def figure_one():
 
     fig, ax = plt.subplots(figsize=(5.5, 3.1), layout="constrained")
     x = list(range(n))
-    ax.axhline(observed, color="0.45", lw=0.9, ls="--")
+    ax.axhline(observed, color=COL["matched"], lw=1.0, ls="--")
     ax.annotate("observed Chicago 0.796", (0.02, observed), textcoords="offset points",
                 xytext=(0, 4), fontsize=6.6, color="0.35", ha="left")
-    ax.plot(x, gini, marker="o", ms=4.2, lw=1.2, color="0.12")
+    ax.plot(x, gini, marker="o", ms=4.2, lw=1.4, color=COL["direct"])
     ax.annotate("0.519", (0, gini[0]), textcoords="offset points",
                 xytext=(7, 5), fontsize=6.8, color="0.25")
     ax.annotate("0.882", (n - 1, gini[-1]), textcoords="offset points",
@@ -80,7 +85,7 @@ def figure_one():
 
 
 def figure_two():
-    """Equal-risk size against the operator: the cliff, and the reason for it."""
+    """Equal-risk size on the left, detection under two risk fields on the right."""
     rows = [r for r in read("calibration_summary.csv") if float(r["sigma"]) == 0]
     idx = {m: i for i, (m, _) in enumerate(OP5)}
     n = len(OP5)
@@ -95,41 +100,51 @@ def figure_two():
             lo[i], hi[i] = float(r["low"]), float(r["high"])
             gini[i] = float(r["mean_gini"])
 
-    fig, (ax, ax2) = plt.subplots(1, 2, figsize=(5.5, 2.6), layout="constrained")
+    fig, (ax, ax2) = plt.subplots(1, 2, figsize=(5.5, 2.7), layout="constrained")
     x = list(range(n))
-
-    ax.axhline(0.05, color="0.55", lw=0.8, ls=":", zorder=1)
-    ax.text(-0.42, 0.075, "nominal 0.05", fontsize=6.8, color="0.35", ha="left")
-    ax.plot(x, length, marker="s", ms=4.2, lw=1.1, color="0.12", label="Direct length null")
+    ax.axhline(0.05, color=COL["ref"], lw=0.8, ls=":", zorder=1)
+    ax.text(-0.42, 0.075, "nominal 0.05", fontsize=6.6, color="0.35", ha="left")
+    ax.plot(x, length, marker="s", ms=4.2, lw=1.2, color=COL["direct"],
+            label="Direct length null")
     ax.errorbar(x, oper, yerr=[[o - a for o, a in zip(oper, lo)],
                                [b - o for o, b in zip(oper, hi)]],
-                marker="o", ms=4.2, lw=1.1, ls="--", color="0.55", capsize=1.8,
+                marker="o", ms=4.2, lw=1.2, ls="--", color=COL["matched"], capsize=1.8,
                 label="Operator-matched null")
     for i, v in enumerate(length):
         if v > 0.5:
             ax.annotate("1.00", (i, v), textcoords="offset points", xytext=(0, 7),
-                        ha="center", fontsize=6.8)
+                        ha="center", fontsize=6.6)
     ax.set_xticks(x)
     ax.set_xticklabels([lab for _, lab in OP5])
     ax.set_xlim(-0.45, n - 0.3)
     ax.set_ylim(-0.04, 1.12)
-    ax.set_ylabel("Rejection rate at equal risk")
+    ax.set_ylabel("Rejection rate under equal risk")
     ax.set_title("(a) Size of the test", loc="left")
     ax.legend(loc="center right", frameon=False, handlelength=2.2)
 
-    ax2.plot(x, gini, marker="^", ms=4.2, lw=1.1, color="0.25")
-    ax2.set_xticks(x)
-    ax2.set_xticklabels([lab for _, lab in OP5])
-    ax2.set_xlim(-0.45, n - 0.3)
-    ax2.set_ylim(0.45, 0.95)
-    ax2.set_ylabel("Mean Gini of equal-risk data")
-    ax2.set_title("(b) Why it happens", loc="left")
-    ax2.annotate("%.3f" % gini[0], (0, gini[0]), textcoords="offset points",
-                 xytext=(0, 7), ha="center", fontsize=6.8)
-    ax2.annotate("%.3f" % gini[-1], (n - 1, gini[-1]), textcoords="offset points",
-                 xytext=(-6, 4), ha="right", fontsize=6.8)
+    # power against risk strength, where the detection boundary actually lives; the
+    # direct test is saturated at every strength and is drawn to make that visible
+    scan = read("extensions_power_origin.csv")
+    sigmas = sorted({float(r["sigma"]) for r in scan if r["experiment"] == "power"})
+    series = (("160", "length", COL["direct"], ":", "s", "Direct length null, 160 m"),
+              ("60", "operator", COL["matched"], "-", "o", "Matched, 60 m"),
+              ("160", "operator", "#2e7d32", "--", "^", "Matched, 160 m"))
+    for mode, method, colour, ls, mk, lab in series:
+        ys = []
+        for sg in sigmas:
+            v = [float(r["rejection"]) for r in scan
+                 if r["experiment"] == "power" and r["mode"] == mode
+                 and r["method"] == method and abs(float(r["sigma"]) - sg) < 1e-9]
+            ys.append(v[0] if v else float("nan"))
+        ax2.plot(sigmas, ys, marker=mk, ms=4.0, lw=1.2, ls=ls, color=colour, label=lab)
+    ax2.axhline(0.05, color=COL["ref"], lw=0.8, ls=":")
+    ax2.set_xlabel("Risk heterogeneity (log-SD)")
+    ax2.set_ylim(-0.04, 1.08)
+    ax2.set_ylabel("Rejection under alternatives")
+    ax2.set_title("(b) Where detection begins", loc="left")
+    ax2.legend(loc="lower right", frameon=False, handlelength=2.0, fontsize=6.2)
 
-    p = FIG / "fig2_size_by_operator.png"
+    p = FIG / "calibration.png"
     fig.savefig(p)
     plt.close(fig)
     print("  wrote", p.name)
@@ -156,8 +171,8 @@ def figure_three():
 
     fig, (ax, ax2) = plt.subplots(1, 2, figsize=(5.5, 2.7), layout="constrained")
     x = list(range(n))
-    styles = {"Chicago": dict(marker="o", ls="-", color="0.12"),
-              "London": dict(marker="s", ls="--", color="0.55")}
+    styles = {"Chicago": dict(marker="o", ls="-", color=COL["chi"]),
+              "London": dict(marker="s", ls="--", color=COL["lon"])}
 
     for network in ("Chicago", "London"):
         ax.plot(x, net[network][0], ms=4.2, lw=1.1, label=network, **styles[network])
@@ -200,7 +215,7 @@ def figure_four():
     fig, (ax, ax2) = plt.subplots(1, 2, figsize=(5.5, 2.7), layout="constrained")
     xs = [s / 1000 for s in size]
 
-    ax.step(xs, pval, where="post", lw=1.1, color="0.12", marker="o", ms=3.8)
+    ax.step(xs, pval, where="post", lw=1.2, color=COL["direct"], marker="o", ms=3.8)
     ax.set_xscale("log")
     ax.set_xlim(44, 260)
     ax.set_ylim(-0.05, 1.12)
@@ -219,9 +234,9 @@ def figure_four():
                 ha="center", fontsize=6.6, color="0.35")
     ax.set_title("(a) The answer turns over once", loc="left")
 
-    ax2.plot(xs, null, marker="^", ms=3.8, lw=1.1, color="0.3",
+    ax2.plot(xs, null, marker="^", ms=3.8, lw=1.2, color=COL["matched"],
              label="Null mean Gini")
-    ax2.axhline(observed, color="0.12", lw=1.0, ls="--", label="Observed 0.894")
+    ax2.axhline(observed, color=COL["direct"], lw=1.0, ls="--", label="Observed 0.894")
     ax2.set_xscale("log")
     ax2.set_xlim(44, 260)
     ax2.set_ylim(0.58, 0.94)
