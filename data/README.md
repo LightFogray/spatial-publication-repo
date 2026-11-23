@@ -1,6 +1,6 @@
 # Data sources and licences
 
-No raw data ships with this repository. Everything below is public and can be re-fetched with
+The three inputs that cannot be regenerated identically are included in `data/archived/` so that a reviewer or reader can reproduce the published numbers without downloading anything. Everything else is fetched by the scripts below. Everything below is public and can be re-fetched with
 the script named in the last column.
 
 | Data | Used for | Source | Licence | Script |
@@ -12,9 +12,10 @@ the script named in the last column.
 | OS Open Names (GB) | Tables 9–10 | Ordnance Survey Open Names, OS Data Hub | Open Government Licence | `download_os_open_names.py` |
 | Gridded population (not used) | — | — | — | — |
 
-## The two files that cannot be regenerated exactly
+## The files that cannot be regenerated exactly
 
-`chicago_roads.geojson` (44.7 MB) and `london_roads.geojson` (141.8 MB) were converted from the
+`chicago_roads.geojson` (44.7 MB uncompressed) and `london_roads.geojson` (141.8 MB
+uncompressed) were converted from the
 BBBike `.osm.pbf` extracts obtained in March 2026 and September 2026 respectively. Both post-date
 the 2024 incidents by one to two years, which the manuscript reports in Section 3.1 and lists as a
 limitation. Because OpenStreetMap is
