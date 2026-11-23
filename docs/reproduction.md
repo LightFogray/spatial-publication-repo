@@ -36,3 +36,9 @@ in place.
 | 4 | `fig4_reference_set.png` | `reference_set_sweep.csv` |
 
 Figure 2 draws the size of the test in panel (a) and the power scan in panel (b), both from the files above; colour carries the series, and line style and marker repeat it so the figures survive greyscale reproduction.
+
+| manuscript item | script |
+| --- | --- |
+| Section 5.9 quadrature check | `code/13_quadrature_and_allocation.py` (part one) |
+| Table 6 displacement, allocation divergence, Z, size | `code/13_quadrature_and_allocation.py` (part two) |
+| Supplementary Text S4 null-bank checks | `code/12_identity_bank_check.py` |

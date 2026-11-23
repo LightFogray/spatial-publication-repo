@@ -1,11 +1,12 @@
-# Crime concentration after spatial publication
+# The published location is not the place
 
 Reproducibility package for the manuscript
 
-> **Crime concentration after spatial publication: aligning random baselines with observation processes**
+> **The published location is not the place: spatial anonymisation and the calibration of street-network concentration statistics**
 
-The paper asks whether a random baseline for crime concentration stays calibrated when published
-coordinates are transformed and reassigned before counting. This package contains the analysis
+The paper asks whether a random baseline for a street-network concentration statistic stays
+calibrated when published coordinates are transformed and reassigned before counting, and whether
+the distance those points move predicts the damage. This package contains the analysis
 code, the derived tables behind every number in the paper, and scripts that re-fetch the public
 data.
 
@@ -14,7 +15,7 @@ data.
 ## What is here
 
 ```
-code/      ten analysis scripts, one per block of results
+code/      thirteen analysis scripts, one per block of results
 data/      download scripts and the data manifest
 outputs/   derived tables and diagnostics (the values printed in the paper)
 figures/   the four figures, redrawn by code/11_make_figures.py
