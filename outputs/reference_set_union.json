@@ -1,0 +1,32 @@
+{
+ "N": 254109,
+ "distinct_points": 47533,
+ "observed_gini": 0.8936289454106401,
+ "reference_sets": {
+  "violent subset": 47533,
+  "all crime and ASB union": 60897
+ },
+ "rows": {
+  "direct length null": {
+   "points": 182200,
+   "null_mean": 0.6962095842558267,
+   "null_sd": 0.000626695179674058,
+   "ratio": 0.7790812818131184,
+   "p": 0.001
+  },
+  "snap-point null, violent subset": {
+   "points": 41062,
+   "null_mean": 0.9005808525462637,
+   "null_sd": 0.00021808860239080352,
+   "ratio": 1.0077794113220326,
+   "p": 1.0
+  },
+  "snap-point null, all crime and ASB union": {
+   "points": 50760,
+   "null_mean": 0.8758813214207256,
+   "null_sd": 0.0002555354463642949,
+   "ratio": 0.9801398286379823,
+   "p": 0.001
+  }
+ }
+}
