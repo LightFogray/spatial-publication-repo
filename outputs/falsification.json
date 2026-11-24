@@ -1,0 +1,56 @@
+{
+ "N": 254109,
+ "observed_gini": 0.8936289454106401,
+ "unused_reference_points": 2779,
+ "unused_median_distance": 18217.606395748742,
+ "rows": [
+  {
+   "label": "violent subset",
+   "points": 47533,
+   "null_mean": 0.9005750887843406,
+   "p": 1.0
+  },
+  {
+   "label": "all-crime union",
+   "points": 60897,
+   "null_mean": 0.8758956590903636,
+   "p": 0.001
+  },
+  {
+   "label": "non-violent and ASB only",
+   "points": 13364,
+   "null_mean": 0.9713018040139504,
+   "p": 1.0
+  },
+  {
+   "label": "union + 5,000 far (>100 m)",
+   "points": 65897,
+   "null_mean": 0.8492882880588686,
+   "p": 0.001
+  },
+  {
+   "label": "union + 5,000 near (<=100 m)",
+   "points": 65897,
+   "null_mean": 0.8722894501111849,
+   "p": 0.001
+  },
+  {
+   "label": "union + 5,000 in heavy units",
+   "points": 65897,
+   "null_mean": 0.8786732090262596,
+   "p": 0.001
+  },
+  {
+   "label": "union + 10,000 near (<=100 m)",
+   "points": 70897,
+   "null_mean": 0.8690473900473655,
+   "p": 0.001
+  },
+  {
+   "label": "union + 10,000 in heavy units",
+   "points": 70897,
+   "null_mean": 0.8802317990320645,
+   "p": 0.001
+  }
+ ]
+}

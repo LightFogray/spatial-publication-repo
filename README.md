@@ -15,7 +15,7 @@ data.
 ## What is here
 
 ```
-code/      thirteen analysis scripts, one per block of results
+code/      seventeen analysis scripts, one per block of results
 data/      download scripts and the data manifest
 outputs/   derived tables and diagnostics (the values printed in the paper)
 figures/   the four figures, redrawn by code/11_make_figures.py

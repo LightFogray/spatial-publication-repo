@@ -42,3 +42,7 @@ Figure 2 draws the size of the test in panel (a) and the power scan in panel (b)
 | Section 5.9 quadrature check | `code/13_quadrature_and_allocation.py` (part one) |
 | Table 6 displacement, allocation divergence, Z, size | `code/13_quadrature_and_allocation.py` (part two) |
 | Supplementary Text S4 null-bank checks | `code/12_identity_bank_check.py` |
+
+| Section 5.7 reference set union | `code/15_reference_set_union.py` |
+| Section 5.7 padding sweep | `code/16_union_padding.py` |
+| Section 5.7 falsification of the monotonicity claim | `code/17_falsification.py` |
